@@ -1,0 +1,19 @@
+.buttonPlanets
+{
+   
+    display: flex;
+    border-radius: 5%;
+    padding: 1%;
+    
+}
+.Container
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.form{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
