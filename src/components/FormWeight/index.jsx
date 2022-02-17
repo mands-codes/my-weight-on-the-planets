@@ -53,19 +53,23 @@ const calcularPeso = (planet, pesoValor) =>
 
     return result.toFixed(2);
 }
+    const showAlert = planet === "" && pesoValor > 0;
 
  return(  
         <>
         <div className="Container">
             <div className="form">
                 <TextField sx={{ mt: 3, ml: 2 }} label="Seu peso na terra" 
-                onChange={(e) => planet !== null ? setPesoValor(Number(e.target.value)) : <Alert severity="warning">Precisa escolher um planeta primeiro!</Alert>}/>
+                onChange={(e) => setPesoValor(Number(e.target.value))}/>
                 <TextField
                 sx={{ mt: 3 , ml : 2}}
                 disabled
                 label={`Seu peso em: ${planet}`}
                 value={calcularPeso(planet, pesoValor)}
                 />
+                { showAlert &&
+                <Alert severity="warning">Precisa escolher um planeta primeiro!</Alert>
+                }
             </div>
             <div className="buttonPlanets">
                 <Button variant={planet === "Sun" ? "contained" : "outlined"}
