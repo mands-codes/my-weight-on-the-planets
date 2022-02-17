@@ -14,10 +14,20 @@ import Neptune from '../../assets/Neptune.png';
 import Uranus from '../../assets/Uranus.png';
 import Pluto from '../../assets/Pluto.png';
 
+
+
 function FormWeight() {
 const [planet, setPlanet] = useState("");
 const [pesoValor, setPesoValor] = useState(0);
+ 
 
+// const planets = [
+//     {
+//         name: 'Sun',
+//         gravity: 274,
+//     }
+// ]
+// const calculaPesoValor (gravity) => { planet.gravity }
 const calcularPeso = (planet, pesoValor) =>
 {
     var result = 0; 
@@ -72,6 +82,11 @@ const calcularPeso = (planet, pesoValor) =>
                 }
             </div>
             <div className="buttonPlanets">
+                {/* <ButtonList
+                    planets={planets}
+                    selectedPlanet={planet}
+                    onPress={(value) => setPlanet(value) }
+                />  */}
                 <Button variant={planet === "Sun" ? "contained" : "outlined"}
                 sx={{mr: 1.5}}
                 onClick={() => setPlanet("Sun")}>

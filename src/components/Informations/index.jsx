@@ -24,7 +24,6 @@ const planets = [
 ]
 function Informations(props) 
 {
-
   const selectedPlanet = planets.find((item) => item.id === props.planet)
     return(
         <div className="container"> 
