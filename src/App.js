@@ -1,5 +1,6 @@
 import React from 'react';
-import FormWeight from './components/FormWeight/FormWeight';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import FormWeight from './components/FormWeight';
 
 function App() {
   return (

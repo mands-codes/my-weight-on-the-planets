@@ -1,0 +1,15 @@
+.container
+{
+    display: flex;
+   
+}
+
+.info
+{
+    flex-direction: column;
+    width: 300px;
+   
+}
+.imagem{
+    margin-right: 10px;
+}
