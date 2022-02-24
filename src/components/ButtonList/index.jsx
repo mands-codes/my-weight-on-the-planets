@@ -5,8 +5,9 @@ function ButtonList(props) {
 
      return (
         <Fragment>
+           {console.log(props.selectedPlanet)}
             {props.planets.map((planet) => (
-              <Button variant={props.selectedPlanet === planet.name ? "contained" : "outlined"}
+              <Button variant={props.selectedPlanet.name === planet.name ? "contained" : "outlined"}
                 sx={{mr: 1.5}}
                 onClick={() => props.onPress(planet)}>
                <img src={planet.icon} width={20} height={20} className="imagem" alt="IconeSol"/>
