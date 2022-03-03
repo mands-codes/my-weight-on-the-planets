@@ -5,7 +5,6 @@ function ButtonList(props) {
 
      return (
         <Fragment>
-           {console.log(props.selectedPlanet)}
             {props.planets.map((planet) => (
               <Button variant={props.selectedPlanet.name === planet.name ? "contained" : "outlined"}
                 sx={{mr: 1.5}}

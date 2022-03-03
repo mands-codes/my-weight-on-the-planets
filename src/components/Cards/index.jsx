@@ -1,26 +1,31 @@
-import React, {useState, useEffect}  from "react";
+import React  from "react";
 import './style.css';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import useSWR from 'swr';
+import axios from 'axios';
+const fetcher = (...params) => axios.get(...params).then(res => res.data);
 
 function Cards(props) 
 {
-const [planet, setPlanet] = useState(null);
+const nome = props.planet.name;
 
-const nomePlaneta = props.planet.name;
+const { data } = useSWR(`https://api.le-systeme-solaire.net/rest/bodies/${nome}`, fetcher)
+console.log(data);
+if(!data)
+{
+  return (<Box sx={{ display: 'flex' }}>
+  <CircularProgress />
+</Box>);
+}
 
-useEffect(()=>{
-  fetch(`https://api.le-systeme-solaire.net/rest/bodies/${nomePlaneta}`)
-  .then(res=> res.json)
-  .then(data=>setPlanet(data)
-  )
-}, [])
- 
     return(
       <div className="row justify-content-center">
-         {nomePlaneta && (
+         {nome && (
             <div className="card">
             <div className="card-body">
-              <p><strong>Nome do Planeta:</strong>{planet.englishName}</p>
-              <p><strong>Inclinação:</strong>{planet.inclination}</p>
+              <p><strong>Nome do Planeta:</strong>{data.englishName}</p>
+              <p><strong>Período Gravitacional:</strong>{data.sideralOrbit} dias</p>
             </div>
           </div>
          )}   

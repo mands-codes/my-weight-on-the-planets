@@ -5,7 +5,7 @@ import FormWeight from './components/FormWeight';
 function App() {
   return (
     <div>
-      <h4 className="lead" style={{textAlign:'center',  color:'#DC143C'}}>Meu peso em....</h4>
+      <h4 className="lead" style={{textAlign:'center',  color:'#DC143C'}}>Calculadora de Pesos</h4>
        <FormWeight />
         
     </div>

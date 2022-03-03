@@ -21,6 +21,7 @@ function FormWeight() {
 
 const [planet, setPlanet] = useState("");
 const [pesoValor, setPesoValor] = useState(0);
+
  const planets = [
     {
         name: 'Sun',
@@ -78,6 +79,7 @@ const [pesoValor, setPesoValor] = useState(0);
         icon: Pluto
     }
 ]
+
 const calculaPesoValor = (gravity, pesoValor) =>
 {
     var result = 0; 
@@ -91,6 +93,15 @@ const calculaPesoValor = (gravity, pesoValor) =>
  return(  
         <>
         <div className="Container">
+
+        <div className="buttonPlanets">
+                { <ButtonList
+                    planets={planets}
+                    selectedPlanet={planet}
+                    onPress={(value) => setPlanet(value)}     
+                  /> 
+                 }  
+            </div>
             <div className="form">
                 <TextField sx={{ mt: 3, ml: 2 }} label="Seu peso na terra" 
                 onChange={(e) => setPesoValor(Number(e.target.value))}/>
@@ -104,15 +115,7 @@ const calculaPesoValor = (gravity, pesoValor) =>
                 <Alert severity="warning">Precisa escolher um planeta primeiro!</Alert>
                 }
             </div>
-            <div className="buttonPlanets">
-                { <ButtonList
-                    planets={planets}
-                    selectedPlanet={planet}
-                    onPress={(value) => setPlanet(value)}     
-                  /> 
-                 }
-                
-            </div>
+            
         </div>
         {planet !== "" &&
             <Cards planet={planet} />
